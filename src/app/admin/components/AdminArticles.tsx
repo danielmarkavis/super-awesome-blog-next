@@ -23,7 +23,6 @@ export default async function AdminArticles({promise}: Props) {
             </tr>
         )
     });
-
     const bodyContent = records.map((record, index) => {
         return (
             <tr key={record.id}>
@@ -45,7 +44,7 @@ export default async function AdminArticles({promise}: Props) {
     return (
         <DataTable
             headerSlot={headerContent}
-            contentSlot={bodyContent}
+            bodySlot={bodyContent}
         />
     )
 }

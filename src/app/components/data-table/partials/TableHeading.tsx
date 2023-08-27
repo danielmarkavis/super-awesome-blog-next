@@ -1,4 +1,11 @@
-export default function TableCell({slot, text}) {
+import {ReactNode} from "react";
+
+interface Props {
+    slot: ReactNode,
+    text: string
+}
+
+export default function TableCell({slot, text}:Props) {
     return (
         <th className={"text-"+text||"left"}>
             <div className="flex">
