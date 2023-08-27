@@ -8,7 +8,7 @@ export default async function IconCircle() {
             width="44"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <g fill="none" stroke="currentColor" stroke-width="2">
+            <g fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="22" cy="22" r="1" stroke="currentColor">
                     <animate
                         attributeName="r"

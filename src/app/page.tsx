@@ -14,11 +14,11 @@ export default function Home() {
             </h1>
 
             <div className="container mx-auto">
-                <div className="grid md:grid-cols-2 gap-5">
-                    <Suspense fallback={<Loading />}>
+                <Suspense fallback={<Loading />}>
+                    <div className="grid md:grid-cols-2 gap-5">
                         <Articles promise={recordsData} />
-                    </Suspense>
-                </div>
+                    </div>
+                </Suspense>
             </div>
         </>
     )

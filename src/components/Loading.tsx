@@ -3,8 +3,8 @@ import IconCircle from "@/icons/icon-circle";
 export default function Loading() {
     return (
         <>
-            <div className={"text-center"}>
-                <IconCircle />
+            <div className={"flex items-center justify-center py-5"}>
+               <IconCircle />
             </div>
         </>
     )
