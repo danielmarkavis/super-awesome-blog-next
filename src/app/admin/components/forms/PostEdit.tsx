@@ -4,6 +4,7 @@ import {Post} from "@/types/Post";
 import {useState, useTransition, FormEvent, ChangeEvent, MouseEvent} from 'react'
 import {useFormik} from "formik";
 import createArticle from "@/repositories/createArticle";
+import deleteArticle from "@/repositories/deleteArticle";
 import * as yup from "yup";
 
 type Props = {
@@ -29,6 +30,7 @@ export default function PostEdit({post}: Props) {
             title: yup
                 .string()
                 .trim()
+                .max(100)
                 .required('Title is required'),
             body: yup
                 .string()
@@ -37,6 +39,9 @@ export default function PostEdit({post}: Props) {
         }),
     });
 
+    const handleDelete = () => {
+        const res= deleteArticle(post.id);
+    }
 
     return (
         <div className="max-w-xl mx-auto">
@@ -81,7 +86,15 @@ export default function PostEdit({post}: Props) {
                     <div className="flex items-center justify-end gap-2">
                         <button
                             className="text-white font-bold py-2 px-4 rounded"
+                            onClick={handleDelete}
+                            disabled={formik.isSubmitting}
+                        >
+                            Delete
+                        </button>
+                        <button
+                            className="text-white font-bold py-2 px-4 rounded"
                             type="submit"
+                            disabled={!(formik.isValid && formik.dirty)}
                         >
                            Update
                         </button>

@@ -24,6 +24,7 @@ export default function PostCreate() {
             title: yup
                 .string()
                 .trim()
+                .max(100)
                 .required('Title is required'),
             body: yup
                 .string()
