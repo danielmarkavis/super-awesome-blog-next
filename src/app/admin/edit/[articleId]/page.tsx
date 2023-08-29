@@ -1,7 +1,7 @@
 import React, {Suspense} from "react";
 import {Post} from "@/types/Post";
 import fetchArticle from "@/repositories/fetchArticle";
-import PostCreateEdit from "@/app/admin/components/forms/PostCreateEdit"
+import PostEdit from "@/app/admin/components/forms/PostEdit"
 import Loading from "@/components/Loading";
 
 type Params = {
@@ -10,8 +10,10 @@ type Params = {
     }
 }
 
-export default function Edit({ params: { articleId } }: Params) {
+export default async function Edit({params: {articleId}}: Params) {
     const recordsData: Promise<Post> = fetchArticle(articleId);
+
+    const data = await recordsData
 
     return (
         <>
@@ -20,10 +22,8 @@ export default function Edit({ params: { articleId } }: Params) {
             </h1>
 
             <div className="container mx-auto">
-                <Suspense fallback={<Loading />}>
-                    <form action="">
-                        <PostCreateEdit promise={recordsData} />
-                    </form>
+                <Suspense fallback={<Loading/>}>
+                    <PostEdit post={data}/>
                 </Suspense>
             </div>
         </>

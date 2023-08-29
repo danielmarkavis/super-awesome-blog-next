@@ -1,4 +1,4 @@
-import IconCircle from "@/icons/icon-circle";
+import IconCircle from "@/components/icons/icon-circle";
 
 export default function Loading() {
     return (
